@@ -1,0 +1,12 @@
+1. Every so often the rclone token expires, leading to the ~/students-home/ hanging. Run
+	rclone config reconnect me123:
+	to fix.
+        followed by
+	rclone mount me123: ./students-home/ --allow-non-empty &
+NOTE: the above only works if fusermount is installed. Check with `which fusermount`. Else
+      email the HPCC.
+
+2. Here's the command to put in the crontab (crontab -e) for assignment-t1:
+
+* * * * * /home/me123/markben/scripts/assignment-t1/detect_new_submission.sh > /home/me123/markben/tmp/detect_new_submissiont1.out 2> /home/me123/markben/tmp/detect_new_submissiont1.err
+
